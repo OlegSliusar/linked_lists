@@ -16,10 +16,20 @@ class LinkedList
     tmp.next_node = Node.new(value, nil)
   end
 
+  def size
+    counter = 0
+    tmp = @head
+    while tmp != nil
+      counter += 1
+      tmp = tmp.next_node
+    end
+    counter
+  end
+
   def to_s
     str = ""
     tmp = @head
-    while tmp.next_node != nil
+    while tmp != nil
       str = str + "( #{tmp.value} ) -> "
       tmp = tmp.next_node
     end
@@ -37,7 +47,12 @@ class Node
 end
 
 linked_list = LinkedList.new
+p linked_list.to_s
+p linked_list.size
 5.times { |i| linked_list.append("data#{i}") }
+p linked_list.to_s
+p linked_list.size
 5.times { |i| linked_list.prepend("prepended_data#{i}") }
 p linked_list
 p linked_list.to_s
+p linked_list.size
