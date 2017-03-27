@@ -3,6 +3,7 @@ class LinkedList
 
   def initialize
     @head = nil
+    @tail = nil
   end
 
   def append(value)
@@ -27,6 +28,15 @@ class LinkedList
     counter
   end
 
+  def tail
+    @tail = @head unless @head.nil?
+    return @tail if @tail.nil?
+    while @tail.next_node != nil
+      @tail = @tail.next_node
+    end
+    @tail
+  end
+
   def to_s
     str = ""
     tmp = @head
@@ -48,29 +58,38 @@ class Node
 end
 
 linked_list = LinkedList.new
-puts ""
+puts "The list"
 p linked_list
-puts ""
+puts "String representation of the list:"
 p linked_list.to_s
-puts ""
+puts "List's size:"
 p linked_list.size
-puts ""
+puts "Head of the list:"
 p linked_list.head
+puts "Tail of the list:"
+p linked_list.tail
 puts "#" * 50
 5.times { |i| linked_list.append("data#{i}") }
+puts "The list"
 p linked_list
-puts ""
+puts "String representation of the list:"
 p linked_list.to_s
-puts ""
+puts "List's size:"
 p linked_list.size
-puts ""
+puts "Head of the list:"
 p linked_list.head
+puts "Tail of the list:"
+p linked_list.tail
 puts "#" * 50
 5.times { |i| linked_list.prepend("prepended_data#{i}") }
+puts "The list"
 p linked_list
-puts ""
+puts "String representation of the list:"
 p linked_list.to_s
-puts ""
+puts "List's size:"
 p linked_list.size
-puts ""
+puts "Head of the list:"
 p linked_list.head
+puts "Tail of the list:"
+p linked_list.tail
+puts "#" * 50
