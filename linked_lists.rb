@@ -7,6 +7,17 @@ class LinkedList
   def append(value)
     @head = Node.new(value, @head)
   end
+
+  def to_s
+    str = ""
+    tmp = @head
+    while tmp.value != nil
+      str = str + "( #{tmp.value} ) -> "
+      tmp = tmp.next_node
+    end
+    str += "nil"
+    str
+  end
 end
 
 class Node
@@ -24,3 +35,4 @@ linked_list.append("data2")
 linked_list.append("data3")
 linked_list.append("data4")
 p linked_list
+p linked_list.to_s
