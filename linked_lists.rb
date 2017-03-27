@@ -1,17 +1,25 @@
 class LinkedList
 
   def initialize
-    @head = Node.new(nil, nil)
+    @head = nil
   end
 
   def append(value)
     @head = Node.new(value, @head)
   end
 
+  def prepend(value)
+    tmp = @head
+    while tmp.next_node != nil
+      tmp = tmp.next_node
+    end
+    tmp.next_node = Node.new(value, nil)
+  end
+
   def to_s
     str = ""
     tmp = @head
-    while tmp.value != nil
+    while tmp.next_node != nil
       str = str + "( #{tmp.value} ) -> "
       tmp = tmp.next_node
     end
@@ -29,10 +37,7 @@ class Node
 end
 
 linked_list = LinkedList.new
-linked_list.append("data")
-linked_list.append("data1")
-linked_list.append("data2")
-linked_list.append("data3")
-linked_list.append("data4")
+5.times { |i| linked_list.append("data#{i}") }
+5.times { |i| linked_list.prepend("prepended_data#{i}") }
 p linked_list
 p linked_list.to_s
