@@ -37,6 +37,17 @@ class LinkedList
     @tail
   end
 
+  def at(index)
+    counter = 0
+    tmp = @head
+    while tmp != nil
+      return tmp if counter == index
+      tmp = tmp.next_node
+      counter += 1
+    end
+    counter
+  end
+
   def to_s
     str = ""
     tmp = @head
@@ -92,4 +103,10 @@ puts "Head of the list:"
 p linked_list.head
 puts "Tail of the list:"
 p linked_list.tail
+puts "Element at index 3:"
+p linked_list.at(3)
+puts "Element at index 9:"
+p linked_list.at(9)
+puts "Element at index 0:"
+p linked_list.at(0)
 puts "#" * 50
