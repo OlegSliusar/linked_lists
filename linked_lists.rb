@@ -75,6 +75,17 @@ class LinkedList
     false
   end
 
+  def find(data)
+    tmp = @head
+    counter = 0
+    while tmp != nil
+      return counter if tmp.value == data
+      tmp = tmp.next_node
+      counter += 1
+    end
+    nil
+  end
+
   def to_s
     str = ""
     tmp = @head
@@ -219,3 +230,13 @@ p linked_list.contains?("fucking_shit")
 puts "\nThe list:"
 p linked_list
 puts "#" * 50
+puts "Get index of element with data: data2"
+p linked_list.find('data2')
+puts "Get index of element with data: prepended_data3"
+p linked_list.find('prepended_data3')
+puts "Get index of element with data: prepended_data1"
+p linked_list.find('prepended_data1')
+puts "Get index of element with data: data0"
+p linked_list.find('data0')
+puts "Get index of element with data: fuck_them_up"
+p linked_list.find('fuck_them_up')
