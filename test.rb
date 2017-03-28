@@ -1,4 +1,5 @@
 require_relative 'linked_lists.rb'
+require 'pry'
 
 linked_list = LinkedList.new
 
@@ -167,3 +168,4 @@ p linked_list.to_s
 linked_list.remove_at(4)
 puts "\nString representation of the list:"
 p linked_list.to_s
+binding.pry

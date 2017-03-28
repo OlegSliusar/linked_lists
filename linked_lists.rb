@@ -46,6 +46,9 @@ class LinkedList
   end
 
   def at(index)
+    if index < 0
+      index = size + index
+    end
     counter = 0
     tmp = @head
     while tmp != nil
