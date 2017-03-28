@@ -66,6 +66,15 @@ class LinkedList
     end
   end
 
+  def contains?(data)
+    tmp = @head
+    while tmp != nil
+      return true if tmp.value == data
+      tmp = tmp.next_node
+    end
+    false
+  end
+
   def to_s
     str = ""
     tmp = @head
@@ -102,6 +111,12 @@ p linked_list.pop
 puts "\nString representation of the list:"
 p linked_list.to_s
 puts "\n"
+puts "\nDoes the list contains nil ? (should return false)"
+p linked_list.contains?(nil)
+puts "\nDoes the list contains 'data2' ? (should return false)"
+p linked_list.contains?("data2")
+puts "\nDoes the list contains 'fucking_shit' ? (should return false)"
+p linked_list.contains?("fucking_shit")
 p linked_list
 puts "#" * 50
 linked_list.prepend("one_element")
@@ -115,6 +130,12 @@ puts "\nDelete the last element from the list:"
 p linked_list.pop
 puts "\nString representation of the list:"
 p linked_list.to_s
+puts "\nDoes the list contains nil ? (should return false)"
+p linked_list.contains?(nil)
+puts "\nDoes the list contains 'data2' ? (should return false)"
+p linked_list.contains?("data2")
+puts "\nDoes the list contains 'fucking_shit' ? (should return false)"
+p linked_list.contains?("fucking_shit")
 puts "\nThe list"
 p linked_list
 puts "#" * 50
@@ -130,6 +151,12 @@ puts "\nDelete the last element from the list:"
 p linked_list.pop
 puts "\nString representation of the list:"
 p linked_list.to_s
+puts "\nDoes the list contains nil ? (should return false)"
+p linked_list.contains?(nil)
+puts "\nDoes the list contains 'data2' ? (should return false)"
+p linked_list.contains?("data2")
+puts "\nDoes the list contains 'fucking_shit' ? (should return false)"
+p linked_list.contains?("fucking_shit")
 puts "\nThe list"
 p linked_list
 puts "#" * 50
@@ -149,6 +176,12 @@ p linked_list.pop
 puts "\nString representation of the list:"
 p linked_list.to_s
 puts "\n"
+puts "\nDoes the list contains nil ? (should return false)"
+p linked_list.contains?(nil)
+puts "\nDoes the list contains 'data2' ? (should return true)"
+p linked_list.contains?("data2")
+puts "\nDoes the list contains 'fucking_shit' ? (should return false)"
+p linked_list.contains?("fucking_shit")
 p linked_list
 puts "#" * 50
 5.times { |i| linked_list.prepend("prepended_data#{i}") }
@@ -177,5 +210,12 @@ p linked_list.to_s
 puts "\nTail of the list:"
 p linked_list.tail
 puts "\n"
+puts "\nDoes the list contains nil ? (should return false)"
+p linked_list.contains?(nil)
+puts "\nDoes the list contains 'data2' ? (should return true)"
+p linked_list.contains?("data2")
+puts "\nDoes the list contains 'fucking_shit' ? (should return false)"
+p linked_list.contains?("fucking_shit")
+puts "\nThe list:"
 p linked_list
 puts "#" * 50
