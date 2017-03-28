@@ -113,6 +113,24 @@ class LinkedList
     end
     prev.next_node = Node.new(obj, cur) if cur != nil
   end
+
+  def remove_at(index)
+    raise "cannot delete" if @head.nil?
+    if index == 0
+      @head = @head.next_node
+      return
+    end
+    prev = nil
+    cur = @head
+    counter = 0
+    while cur != nil && counter != index
+      prev = cur
+      cur = cur.next_node
+      counter += 1
+    end
+    raise "cannot delete" if cur.nil?
+    prev.next_node = cur.next_node if cur != nil
+  end
 end
 
 class Node
@@ -266,3 +284,21 @@ puts "\nString representation of the list:"
 p linked_list.to_s
 puts "\nThe list:"
 p linked_list
+linked_list.remove_at(0)
+puts "\nString representation of the list:"
+p linked_list.to_s
+linked_list.remove_at(0)
+puts "\nString representation of the list:"
+p linked_list.to_s
+linked_list.remove_at(1)
+puts "\nString representation of the list:"
+p linked_list.to_s
+linked_list.remove_at(2)
+puts "\nString representation of the list:"
+p linked_list.to_s
+linked_list.remove_at(3)
+puts "\nString representation of the list:"
+p linked_list.to_s
+linked_list.remove_at(4)
+puts "\nString representation of the list:"
+p linked_list.to_s
