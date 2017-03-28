@@ -31,6 +31,11 @@ class LinkedList
     counter
   end
 
+  def head
+    return nil if @head.nil?
+    @head.value
+  end
+
   def tail
     return nil if @head.nil?
     tail = @head
