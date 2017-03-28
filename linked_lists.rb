@@ -96,6 +96,23 @@ class LinkedList
     str += "nil"
     str
   end
+
+  def insert(index, obj)
+    return nil if @head.nil?
+    if index == 0
+      append(obj)
+      return
+    end
+    prev = nil
+    cur = @head
+    counter = 0
+    while cur != nil && counter != index
+      prev = cur
+      cur = cur.next_node
+      counter += 1
+    end
+    prev.next_node = Node.new(obj, cur) if cur != nil
+  end
 end
 
 class Node
@@ -119,6 +136,7 @@ puts "\nTail of the list:"
 p linked_list.tail
 puts "\nDelete the last element from the list:"
 p linked_list.pop
+linked_list.insert(0, "never_inserted_at_0")
 puts "\nString representation of the list:"
 p linked_list.to_s
 puts "\n"
@@ -135,6 +153,7 @@ puts "\nThe list"
 p linked_list
 puts "\nTail of the list:"
 p linked_list.tail
+linked_list.insert(0, "inserted_at_0")
 puts "\nString representation of the list:"
 p linked_list.to_s
 puts "\nDelete the last element from the list:"
@@ -240,3 +259,10 @@ puts "Get index of element with data: data0"
 p linked_list.find('data0')
 puts "Get index of element with data: fuck_them_up"
 p linked_list.find('fuck_them_up')
+linked_list.insert(2, "I'm inserted at index 2")
+linked_list.insert(5, "I'm inserted at index 5")
+linked_list.insert(8, "I'm inserted at index 8")
+puts "\nString representation of the list:"
+p linked_list.to_s
+puts "\nThe list:"
+p linked_list
