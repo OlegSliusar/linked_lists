@@ -45,7 +45,7 @@ class LinkedList
       tmp = tmp.next_node
       counter += 1
     end
-    counter
+    nil
   end
 
   def to_s
@@ -109,4 +109,6 @@ puts "Element at index 9:"
 p linked_list.at(9)
 puts "Element at index 0:"
 p linked_list.at(0)
+puts "Element at index 30:"
+p linked_list.at(30)
 puts "#" * 50
